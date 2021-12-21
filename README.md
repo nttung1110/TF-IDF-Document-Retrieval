@@ -32,7 +32,7 @@ exit()
 ## TF-IDF Document Retrieval
 ### Crawling the data
 
-The very first step in any retrieval problem is to crawling the information. In this problem, I made use of off-the-shelf codes implemented by [] to perform crawling the data
+The very first step in any retrieval problem is to crawling the information. In this problem, I made use of off-the-shelf codes to perform crawling the data
 from Internet source. You can specify your crawling options in `web_scrapping/main.py` from line 5 to 10. After that, run the following command to crawl the documents 
 and it will be saved in ```newsPaperData.json```
 
