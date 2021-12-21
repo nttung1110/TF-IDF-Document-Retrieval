@@ -5,11 +5,11 @@ import json
 class myNewsCrawler():
     data = {}
     
-    def __init__(self,companies):
+    def __init__(self,companies, num_limit):
         self.companies = companies
         self.newsPaper = {}
         self.data['newspapers'] = {}
-        self.limit = 100
+        self.limit = num_limit
 
     def downloadHtml(self):    
         for company, value in self.companies.items():
@@ -45,7 +45,7 @@ class myNewsCrawler():
                 newsPaper['articles'].append(article)
                    
             self.data['newspapers'][company] = newsPaper
-            with open("./newsPaperData.json", "w") as fp:
+            with open("../newsPaperData.json", "w") as fp:
                 json.dump(self.data, fp, indent=4)
             # open("newsPaperData.json","wb").write(str(self.data).encode('UTF-8'))
             print(".....................................................")

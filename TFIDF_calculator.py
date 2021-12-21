@@ -3,6 +3,7 @@ from tqdm import tqdm
 
 import json
 import numpy as np
+import sys
 import copy as copy
 import pdb
 
@@ -122,6 +123,7 @@ if __name__ == "__main__":
 
     test_query = "president in dangerous"
     num_res = 20
+
     test.retrieve_result(test_query, num_res, res_file_json)
     print("Returned results in ", res_file_json)
 

@@ -3,6 +3,7 @@ import sys
 
 
 word = "Trump"
+num_limit = 100
 newsPapers = {
     "foxnews": {"link": "http://www.foxnews.com/"}
     #, "cnn": {"link": "https://edition.cnn.com"}
@@ -11,7 +12,7 @@ newsPapers = {
 def main():
     # if len(sys.argv) == 2:
     #     word = sys.argv[1]
-    s = myNewsCrawler(newsPapers)
+    s = myNewsCrawler(newsPapers, num_limit)
     s.downloadHtml()
     # s.findWord(word)
 

@@ -3,11 +3,10 @@ from tqdm import tqdm
 import pdb
 import numpy as np
 # nltk.download('stopwords')
-nltk.download('wordnet')
+# nltk.download('wordnet')
 
-def build_standarize_document_repo(json_path_in):
+def build_standarize_document_repo(json_path_in, json_path_out):
     print("----Building standard documents and constructing frequency of all terms in each document----")
-    json_path_out = './standard_all_documents.json'
     processor = TextProcessor()
 
     json_res = {"all_documents": []}
@@ -49,8 +48,7 @@ def build_standarize_document_repo(json_path_in):
 
     print("----Finish building standard document----")
 
-def build_standardize_corpus(json_path_documents):
-    json_path_out = './corpus.json'
+def build_standardize_corpus(json_path_documents, json_path_corpus_out):
     processor = TextProcessor()
 
     print("----Building corpus from saved documents and pre-calculate the idf for corpus----")
@@ -95,7 +93,7 @@ def build_standardize_corpus(json_path_documents):
         list_corpus_with_idf_score[word] = np.log(num_documents/(1+list_corpus_with_idf_score[word]))
     # sort the vocab
     list_corpus_with_idf_score = dict(sorted(list_corpus_with_idf_score.items()))
-    with open(json_path_out, "w") as fp:
+    with open(json_path_corpus_out, "w") as fp:
         json.dump(list_corpus_with_idf_score, fp, indent=4)
 
     print("----Finish building corpus----")
@@ -120,7 +118,8 @@ def test(json_path):
 
 if __name__ == "__main__":
     json_path = "./newsPaperData.json"
-    json_path_document = "./standard_all_documents.json"
+    json_path_standardized_document = "./standard_all_documents.json"
+    json_path_corpus_out = './corpus.json'
 
     build_standarize_document_repo(json_path)
-    build_standardize_corpus(json_path_document)
+    build_standardize_corpus(json_path_standardized_document, json_path_corpus_out)
