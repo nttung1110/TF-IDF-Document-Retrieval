@@ -121,5 +121,5 @@ if __name__ == "__main__":
     json_path_standardized_document = "./standard_all_documents.json"
     json_path_corpus_out = './corpus.json'
 
-    build_standarize_document_repo(json_path)
+    build_standarize_document_repo(json_path, json_path_standardized_document)
     build_standardize_corpus(json_path_standardized_document, json_path_corpus_out)
