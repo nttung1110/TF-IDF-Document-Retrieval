@@ -16,12 +16,10 @@ The process of my retrieval pipeline can be divided into four steps:
 ```
 conda create --name tf_idf python=3.7
 conda activate tf_idf
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
-Note that you should run the two lines of code for installing the packages of nltk
-
-You can install it via interactive terminal
+Note that you should install the packages of nltk via interactive terminal as following:
 
 ```
 python
